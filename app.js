@@ -14,9 +14,6 @@ app.get('/pathtraversal', (req, res) => {
 
 app.get('/pathtraversal/*', (req, res) => {
   let filePath = path.resolve(__dirname + req.params[0]);
-  console.log(filePath)
-  console.log(typeof req.params[0])
-  console.log(req.params[0])
   if(!fs.existsSync(filePath)){
     res.sendFile(filePath);
   }else {
