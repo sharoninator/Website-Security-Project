@@ -21,6 +21,16 @@ app.get('/pathtraversal/*', (req, res) => {
   }
 })
 
+
+app.get('/login', (req, res) => {
+  let { username, password } = req.query;
+  if (username === 'admin' && password === 'admin') {
+    res.send('Successful login to admin account.');
+  } else {
+    res.send('Login failed. Invalid username or password.');
+  }
+});
+
 app.listen(port, () => {
   console.log(`Fully Secure app listening on port ${port}`)
 })
